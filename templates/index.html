@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexagesimal Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sexagesimal Calculator</h2>
+        <form method="post">
+            <label>Enter First Number:</label>
+            <input type="text" name="num1" placeholder="Example: 3;38,4,41,3 or 2.5" required>
+            
+            <label>Enter Second Number:</label>
+            <input type="text" name="num2" placeholder="Example: 1;2,7,39,12 or 1.8" required>
+            
+            <label>Choose Operation:</label>
+            <select name="operation">
+                <option value="+">Addition (+)</option>
+                <option value="-">Subtraction (-)</option>
+                <option value="*">Multiplication (*)</option>
+                <option value="/">Division (/)</option>
+            </select>
+            
+            <label>Choose Output Format:</label>
+            <select name="format">
+                <option value="decimal">Decimal</option>
+                <option value="sexagesimal">Sexagesimal</option>
+            </select>
+            
+            <label>Precision:</label>
+            <input type="number" name="precision" min="1" max="10" required>
+            
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result %}
+            <div class="result">Result: {{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
